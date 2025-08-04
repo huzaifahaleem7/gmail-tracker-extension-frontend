@@ -3,14 +3,16 @@ import { BASE_URL } from "../config/config.js";
 //createEmailId
 const createEmailId = async () => {
   try {
-    const response = await fetch(`${BASE_URL}`, {
+    const response = await fetch(`${BASE_URL}/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-
+    if (!response.ok) {
+      console.log("Huzaifa Bin Haleem");
+      throw new Error(`HTTP error: ${response.status}`);
+    }
     const data = await response.json();
     console.log("createEmailId:", data.emailId);
     return data.emailId;
